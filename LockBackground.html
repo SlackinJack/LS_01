@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="style.css" rel="stylesheet">
+    <head>
+        <script src="scripts/time.js"></script>
+        <script src="scripts/music.js"></script>
+    </head>
+    <body onload="time(); timeInterval(); onload();">
+        <!--Clock-->
+        <div id="divClock">
+            <div id="clockTime"></div>
+            <div id="clockCal"></div>
+        </div>
+
+        <!--Weather-->
+        <div id="divWeather">
+            <img id="weatherIcon" xui-src="'xui://resource/default/weather/%s.svg' | inject weather.now.condition.code" />
+            <br/>
+            { weather.now.temperature.current }&deg;{ weather.units.temperature }, { weather.metadata.address.city }
+            <br/>
+            { weather.now.condition.description }
+        </div>
+
+        <!--Music-->
+        <div id="divMusic">
+            <div class="icon-outer">
+                <img id="artwork" src="xui://resource/default/media/no-artwork.svg" />
+            </div>
+
+            <div id="controls-column">
+                <div class="scrobble-section">
+                    <div class="scrobble-times">
+                        <p id="elapsed"></p>
+                        <p id="length"></p>
+                    </div>
+
+                    <div id="scrobble-slider-wrapper">
+                        <progress id="playback-time"></progress>
+                        <div class="slider-wrapper scrobble-slider-container">
+                            <input type="range" min="0" id="scrobble-slider" oninput="onScrobbleUIChanged(this.value)" onchange="onScrobbleChanged(this.value)" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="top-section">
+                    <div class="details" id="visible-details">
+                        <p id="track"></p>
+                        <p id="artist"></p>
+                    </div>
+                </div>
+
+                <div id="controls-section">
+                    <div class="controls" xui-class-disabled="media.isStopped">
+                        <img src="xui://resource/default/media/previous.svg" onclick="api.media.previousTrack()" class="control auxillary-control" />
+                        <img src="xui://resource/default/media/play.svg" id="play" onclick="api.media.togglePlayPause()" class="control" />
+                        <img src="xui://resource/default/media/pause.svg" id="pause" onclick="api.media.togglePlayPause()" class="control" />
+                        <img src="xui://resource/default/media/next.svg" onclick="api.media.nextTrack()" class="control auxillary-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

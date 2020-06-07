@@ -1,0 +1,251 @@
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: white;
+    display: grid;
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 100%;
+    text-shadow: 0 5px 18px black;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 108px 95px;
+}
+
+/*********************************/
+/**************Music**************/
+/*********************************/
+#divMusic {
+    grid-row: 1;
+    grid-column: 1 / 2;
+    display: none;
+}
+
+.icon-outer {
+    grid-column: 1;
+    height: 108px;
+    width: 108px;
+    flex: 0 0 52px;
+    margin: 8px 12px 12px 22px;
+    box-sizing: border-box;
+}
+
+.icon-outer img {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    opacity: 0.25;
+}
+
+.icon-outer .content {
+    opacity: 1.0;
+}
+
+#controls-column {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: 8px 28px 30px;
+}
+
+.scrobble-section {
+    grid-row: 1;
+    position: relative;
+    text-align: center;
+}
+
+.scrobble-times {
+    margin: -5px 10px -40px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+#scrobble-slider-wrapper {
+    display: block;
+    margin-top: -6px;
+}
+
+#playback-time {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 55%;
+    height: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#playback-time::-webkit-progress-bar {
+    background: rgba(144, 144, 144, 0.66);
+}
+
+#playback-time::-webkit-progress-value {
+    background-color: #fff;
+}
+
+.scrobble-slider-container {
+    width: 60%;
+    background: transparent;
+
+    position: absolute;
+    top: -6px;
+    left: 14%;
+    margin: 0;
+}
+
+#scrobble-slider {
+    background: transparent;
+}
+
+#scrobble-slider::-webkit-slider-runnable-track {
+    background: transparent;
+    border: none;
+}
+
+#scrobble-slider::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    top: -4px;
+}
+
+.top-section {
+    grid-row: 2;
+    height: 76px;
+    text-align: center;
+    margin: 4px auto 0 auto;
+}
+
+.details {
+    display: block;
+    width: 208px;
+    text-align: center;
+    margin-top: 4px;
+    height: fit-content;
+}
+
+#track, #artist {
+    text-shadow: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#track {
+    font-size: 16px;
+}
+
+#artist {
+    margin-top: -8px;
+    font-size: 12px;
+}
+
+#controls-section{
+    margin-top: 38px;
+}
+
+.controls {
+    height: fit-content;
+    grid-row:3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: -1px;
+}
+
+.control {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 40px !important;
+    margin: 6px 22px 0 22px;
+}
+
+.controls.disabled .auxillary-control {
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+#pause {
+    display: none;
+}
+
+/* Sliders */
+
+.slider-wrapper {
+    height: 40px;
+    flex: 1 1 auto;
+    margin: 0 12px;
+}
+
+input[type=range] {
+    background: transparent;
+    height: 100%;
+    position: relative;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: rgba(175, 175, 175, 1.0);
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    border: none;
+    background: #fff;
+    box-shadow: 0px 2px 3px 1px rgba(255, 255, 255, 0.1);
+    top: -6px;
+    position: relative;
+}
+
+
+/***********************************/
+/**************Weather**************/
+/***********************************/
+
+#divWeather {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 16px;
+    margin-top: 24px;
+    margin-left: 24px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#weatherIcon {
+    height: 38px;
+    width: 38px;
+    margin-top: 11px;
+}
+
+/***********************************/
+/***************Clock***************/
+/***********************************/
+
+#divClock {
+    grid-row: 2;
+    grid-column: 2;
+    text-align: right;
+    margin-top: 18px;
+    margin-right: 22px;
+    text-shadow: 0 5px 18px rgba(0,0,0,0.33);
+}
+
+#clockTime {
+    font-size: 72px;
+}
+
+#clockCal {
+    font-size: 16px;
+    margin-top: -8px;
+    margin-right: 5px;
+}
